@@ -7,6 +7,8 @@ import sys
 # or anything nice like that.
 # ******************************************************************************
 
+MAX_LENGTH = 15
+
 if len(sys.argv) < 2:
     print('put number of users you want to try for as a commandline arg')
     sys.exit()
@@ -19,13 +21,23 @@ with open('colors.txt') as f:
 with open('animals.txt') as f:
     animals = f.readlines()
 
+with open('adjectives.txt') as f:
+    adjectives = f.readlines()
+
+with open('nouns.txt') as f:
+    nouns = f.readlines()
+
 def get_username():
-    for _ in range(20):
-        color = random.choice(colors)
-        animal = random.choice(animals)
-        username = color.title() + animal.title()
+    for _ in range(6):  # in case username too long and have to try again
+        prefix_list_item = random.choice([colors, adjectives])
+        prefix = random.choice(prefix_list_item)
+
+        suffix_list_item = random.choice([animals, nouns])
+        suffix = random.choice(suffix_list_item)
+
+        username = prefix.title() + suffix.title()
         username = ''.join(c for c in username if c.isalnum())  # strip special
-        if len(username) <= 15:
+        if len(username) <= MAX_LENGTH:
             return username
 
 usernames = []
