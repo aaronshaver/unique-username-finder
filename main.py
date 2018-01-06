@@ -1,3 +1,4 @@
+from datetime import datetime
 import requests
 import random
 import sys
@@ -6,6 +7,8 @@ import sys
 # This is ugly code, just hacked together for a quick solution. No unit tests
 # or anything nice like that.
 # ******************************************************************************
+
+start_time = datetime.now()
 
 MAX_LENGTH = 15
 
@@ -51,7 +54,7 @@ def is_username_unique(username):
     return 'did not match any documents' in result.text
 
 num_users = len(usernames)
-print('\nChecking [ {} ] usernames\n'.format(num_users))
+print('\nChecking [ {} ] usernames'.format(num_users))
 
 usernames_final = []
 count = 0
@@ -68,3 +71,6 @@ print("\nFound {} unique and short usernames\n".format(len(usernames_sorted)))
 with open('results.txt', 'w') as f:
     for username in usernames_sorted:
         f.write(username + '\n')
+
+print('Username generation took this much time: ' +
+    str(datetime.now() - start_time))
