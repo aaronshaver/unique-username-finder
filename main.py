@@ -2,6 +2,7 @@ from datetime import datetime
 import requests
 import random
 import sys
+import time
 
 # ******************************************************************************
 # This is ugly code, just hacked together for a quick solution. No unit tests
@@ -11,6 +12,7 @@ import sys
 start_time = datetime.now()
 
 MAX_LENGTH = 15
+DELAY = 0.5
 
 if len(sys.argv) < 2:
     print('put number of users you want to try for as a commandline arg')
@@ -50,6 +52,7 @@ for _ in range(num_usernames_to_make):
 
 def is_username_unique(username):
     url = 'https://www.google.com/search?q={}&tbs=li:1'.format(username)
+    time.sleep(DELAY)  # to avoid Google blacklisting us
     result  = requests.get(url)
     return 'did not match any documents' in result.text
 
