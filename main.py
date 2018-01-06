@@ -53,8 +53,15 @@ for _ in range(num_usernames_to_make):
 def is_username_unique(username):
     url = 'https://www.google.com/search?q={}&tbs=li:1'.format(username)
     time.sleep(DELAY)  # to avoid Google blacklisting us
-    result  = requests.get(url)
-    return 'did not match any documents' in result.text
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.84 Safari/537.36',
+    }
+    response = requests.get(url, headers=headers)
+    html = response.text
+    if 'detected unusual traffic' in html:
+        print('Google is not happy with the traffic we are sending; abort')
+        sys.exit()
+    return 'did not match any documents' in response.text
 
 num_users = len(usernames)
 print('\nChecking [ {} ] usernames'.format(num_users))
