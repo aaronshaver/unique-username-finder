@@ -12,13 +12,17 @@ import time
 start_time = datetime.now()
 
 MAX_LENGTH = 15
-DELAY = 0.5
+DELAY = 0.1
+MAX_USERNAMES = 500
 
 if len(sys.argv) < 2:
     print('put number of users you want to try for as a commandline arg')
     sys.exit()
 
 num_usernames_to_make = int(sys.argv[1])
+if num_usernames_to_make > MAX_USERNAMES:
+    print('Google gets mad if you do too many queries. If you still  want to do this, edit the .py file and run again.')
+    sys.exit()
 
 with open('colors.txt') as f:
     colors = f.readlines()
