@@ -36,13 +36,18 @@ with open('adjectives.txt') as f:
 with open('nouns.txt') as f:
     nouns = f.readlines()
 
+with open('coin_terms.txt') as f:
+    coin_terms = f.readlines()
+
 def get_username():
-    for _ in range(6):  # in case username too long and have to try again
-        prefix_list_item = random.choice([colors, adjectives])
+    for _ in range(10):  # in case username too long and have to try again
+        prefix_list_item = random.choice([coin_terms])
         prefix = random.choice(prefix_list_item)
 
-        suffix_list_item = random.choice([animals, nouns])
+        suffix_list_item = random.choice([coin_terms])
         suffix = random.choice(suffix_list_item)
+        if suffix == prefix:
+            continue
 
         username = prefix.title() + suffix.title()
         username = ''.join(c for c in username if c.isalnum())  # strip special
