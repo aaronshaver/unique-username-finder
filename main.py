@@ -39,6 +39,17 @@ with open('nouns.txt') as f:
 with open('coin_terms.txt') as f:
     coin_terms = f.readlines()
 
+def write_usernames():
+    usernames_sorted = sorted(usernames_final, key=len)  # shortest first
+    print("\nFound {} unique and short usernames\n".format(len(usernames_sorted)))
+
+    with open('results.txt', 'w') as f:
+        for username in usernames_sorted:
+            f.write(username + '\n')
+
+    print('Username generation took this much time: ' +
+        str(datetime.now() - start_time))
+
 def get_username():
     for _ in range(10):  # in case username too long and have to try again
         prefix_list_item = random.choice([coin_terms])
@@ -70,6 +81,7 @@ def is_username_unique(username):
     html = response.text
     if 'detected unusual traffic' in html:
         print('Google is not happy with the traffic we are sending; abort')
+        write_usernames()
         sys.exit()
     return 'did not match any documents' in response.text
 
@@ -84,13 +96,3 @@ for username in usernames:
     count += 1
     if count % 100 == 0:
         print('Checked {} usernames'.format(count))
-
-usernames_sorted = sorted(usernames_final, key=len)  # shortest first
-print("\nFound {} unique and short usernames\n".format(len(usernames_sorted)))
-
-with open('results.txt', 'w') as f:
-    for username in usernames_sorted:
-        f.write(username + '\n')
-
-print('Username generation took this much time: ' +
-    str(datetime.now() - start_time))
