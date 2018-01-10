@@ -11,9 +11,9 @@ import time
 
 start_time = datetime.now()
 
-MAX_LENGTH = 999999
-DELAY = 0.25
-MAX_USERNAMES = 750
+MAX_LENGTH = 15
+DELAY = 0.05
+MAX_USERNAMES = 800
 
 if len(sys.argv) < 2:
     print('put number of users you want to try for as a commandline arg')
