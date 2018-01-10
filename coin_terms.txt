@@ -34,3 +34,7 @@ transact
 volume
 wallet
 yield
+peak
+summit
+rise
+apex

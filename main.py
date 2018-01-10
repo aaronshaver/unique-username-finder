@@ -11,9 +11,9 @@ import time
 
 start_time = datetime.now()
 
-MAX_LENGTH = 15
-DELAY = 0.1
-MAX_USERNAMES = 500
+MAX_LENGTH = 999999
+DELAY = 0.25
+MAX_USERNAMES = 750
 
 if len(sys.argv) < 2:
     print('put number of users you want to try for as a commandline arg')
@@ -57,7 +57,8 @@ def get_username():
 usernames = []
 for _ in range(num_usernames_to_make):
     username = get_username()
-    usernames.append(username)
+    if username not in usernames:
+        usernames.append(username)
 
 def is_username_unique(username):
     url = 'https://www.google.com/search?q={}&tbs=li:1'.format(username)
