@@ -1,4 +1,4 @@
-    # unique-username-finder
+# unique-username-finder
 
 Creates random usernames, checks against Google for zero results returned
 
