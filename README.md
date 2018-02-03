@@ -15,9 +15,6 @@ Output will look something like:
 
     Checking [ 10 ] usernames
 
-
-    Found 7 unique and short usernames
-
     Checked 10 usernames
-    7 usernames were found to be unique
-    Username generation took this much time: 0:00:04.486873
+    3 usernames were found to be unique
+    Username generation took this much time: 0:00:04.818727
