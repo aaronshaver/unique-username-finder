@@ -11,8 +11,19 @@ It'll (over)write the results to `results.txt`.
 
 Output will look something like:
 
-    Checking [ 10 ] usernames
+    Checking [ 5 ] usernames
 
-    Checked 10 usernames
-    3 usernames were found to be unique
-    Username generation took this much time: 0:00:04.818727
+    Started async check for ManateeReality
+    Started async check for CornyPopulation
+    Started async check for SnowPuma
+    Started async check for UntrueChamois
+    Started async check for OchreMouse
+    Finished async check for UntrueChamois
+    Finished async check for ManateeReality
+    Finished async check for OchreMouse
+    Finished async check for CornyPopulation
+    Finished async check for SnowPuma
+
+    Checked 5 usernames
+    1 usernames were found to be unique
+    Username generation took this much time: 0:00:00.801511
