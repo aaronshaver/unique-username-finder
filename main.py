@@ -75,8 +75,7 @@ for _ in range(num_usernames_to_make):
     if username not in usernames:
         usernames.append(username)
 
-num_users = len(usernames)
-print('\nChecking [ {} ] usernames\n'.format(num_users))
+print('\nChecking [ {} ] usernames\n'.format(len(usernames)))
 
 unique_usernames = []
 count = 0
