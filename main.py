@@ -45,7 +45,6 @@ def is_username_unique(username):
 
 def write_usernames():
     usernames_sorted = sorted(unique_usernames, key=len)  # shortest first
-    print("\nFound {} unique and short usernames\n".format(len(usernames_sorted)))
 
     with open('results.txt', 'w') as f:
         for username in usernames_sorted:
