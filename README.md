@@ -1,4 +1,4 @@
-# unique-username-finder
+    # unique-username-finder
 
 Creates random usernames, checks against Google for zero results returned
 
@@ -15,4 +15,9 @@ Output will look something like:
 
     Checking [ 10 ] usernames
 
-    Found 3 unique and short usernames
+
+    Found 7 unique and short usernames
+
+    Checked 10 usernames
+    7 usernames were found to be unique
+    Username generation took this much time: 0:00:04.486873
