@@ -40,7 +40,7 @@ async def get_google_response(username):
 
 
 async def check_and_add_unique_username(username):
-    print("started async check for {}".format(username))
+    print("Started async check for {}".format(username))
     response = await get_google_response(username)
     html = response.text
     if 'detected unusual traffic' in html:
@@ -50,7 +50,7 @@ async def check_and_add_unique_username(username):
         sys.exit()
     if 'did not match any documents' in response.text:
         unique_usernames.append(username)
-    print("finished check for {}".format(username))
+    print("Finished async check for {}".format(username))
 
 
 def write_usernames():
@@ -99,6 +99,6 @@ loop.close()
 
 write_usernames()
 
-print("checked {} usernames".format(len(usernames)))
+print("\nChecked {} usernames".format(len(usernames)))
 print('{} usernames were found to be unique'.format(len(unique_usernames)))
 print_time_taken()
