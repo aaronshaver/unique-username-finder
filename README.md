@@ -1,6 +1,6 @@
 # unique-username-finder
 
-Creates random usernames, checks against Google for zero results returned to filter out ones in use
+Creates random usernames, asynchronously checks Google for zero results returned to filter out names in use
 
 ## Usage
 
